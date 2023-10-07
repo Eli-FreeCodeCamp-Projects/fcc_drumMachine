@@ -3,7 +3,8 @@ import {ut} from "../utils/utils.js";
 import PropTypes, {string} from "prop-types";
 
 /**
- * BootStrap switch checkbox component.
+ * BootStrap v5.3 switch checkbox component.
+ * Require BootStrap v5.3 import css and js
  * @param props
  * @return {JSX.Element}
  * @constructor

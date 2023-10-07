@@ -3,7 +3,8 @@ import {ut} from "../utils/utils.js";
 import PropTypes from "prop-types";
 
 /**
- *
+ * BootStrap v5.3 radio toggle buttons component.
+ * Require BootStrap v5.3 import css and js
  * @param props
  * @return {JSX.Element}
  * @constructor
