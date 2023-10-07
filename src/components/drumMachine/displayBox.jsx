@@ -24,7 +24,7 @@ export function DisplayBoxWithContext(){
  */
 export function DisplayBox({displayMsg}){
     return(
-        <div className="display-box">
+        <div id="display" className="display-box">
             {displayMsg}
         </div>
     )
