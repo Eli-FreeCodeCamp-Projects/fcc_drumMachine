@@ -26,10 +26,8 @@ export function DrumPads(){
         const audio = document.getElementById(`${shortcut}`);
         if(ut.isElement(audio)){
             dispatch(setDisplay(audio.parentElement.getAttribute('data-display')))
-            const src = audio.getAttribute('src');
-            const audioObj = new Audio(src);
-            audioObj.volume = ut.toFixedFloat(volume / 100, 2);
-            audioObj.play();
+            audio.volume = ut.toFixedFloat(volume / 100, 2);
+            audio.play();
         }
     }
 
