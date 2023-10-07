@@ -6,8 +6,7 @@ import {DrumControls} from "./dmControls.jsx";
 import {DrumPads} from "./dmPads.jsx";
 
 /**
- *
- * @param props
+ * DrumMachine Component
  * @return {JSX.Element}
  * @constructor
  */

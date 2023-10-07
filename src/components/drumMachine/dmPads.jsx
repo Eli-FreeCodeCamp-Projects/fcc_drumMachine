@@ -4,8 +4,7 @@ import {selectBankPads, selectPower, selectVolume, setDisplay} from '../../featu
 import {ut} from "../../utils/utils.js";
 
 /**
- *
- * @param props
+ * Drum pads Component
  * @return {JSX.Element}
  * @constructor
  */
