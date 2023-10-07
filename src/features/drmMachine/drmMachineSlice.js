@@ -12,6 +12,7 @@ const loadInitialState = () => {
                     value: obj.name,
                     label: index+1
                 })
+                bankPads = obj.drum_pads;
                 if(bank === ''){
                     bank = obj.name
                 }
@@ -45,23 +46,24 @@ const drmMachineSlice = createSlice({
             prepare(bank) {
                 if(ut.isArray(banksData)){
 
-                    const selected = banksData.filter((obj)=>{
+                    let selected = banksData.filter((obj)=>{
                         if(bank === obj.name){
                             return obj;
                         }
                     });
-
                     if(selected.length === 1){
-                        if(! (ut.isStr(selected.display) || selected.display === '')){
-                            throw new Error('Redux Error : Unable to setSoundBank, invalid sound banks data. banksData.display must be a string and not null.')
+                        selected = selected[0];
+
+                        if(!ut.isStr(selected.display) || selected.display === ''){
+                            throw new Error(`Redux Error : Unable to setSoundBank, invalid sound banks data. banksData.display must be a string and not null. ${selected.display}`)
                         }
 
-                        if(! ut.isArray(selected.bankPads) || selected.bankPads.length === 0){
+                        if(!ut.isArray(selected.drum_pads) || selected.drum_pads.length === 0){
                             throw new Error('Redux Error : Unable to setSoundBank, invalid sound banks data. banksData.bankPads must be an Array and not null.')
                         }
 
                         const display = selected.display,
-                            bankPads = selected.bankPads
+                            bankPads = selected.drum_pads
                         return {
                             payload: { bank, display, bankPads }
                         }
@@ -76,17 +78,17 @@ const drmMachineSlice = createSlice({
 
         },
         setPower(state, action){
-            const power = (action.power === true)
+            const power = (action.payload === true);
             state.power = power;
             state.displayMsg = (power === true) ? "Welcome to Drum Machine!!!" : "Good bye!!!"
         },
         setVolume(state, action){
-            const volume = (ut.isNumber(action.volume)) ? parseInt(action.volume) : 25;
+            const volume = (ut.isNumber(action.payload)) ? parseInt(action.payload) : 25;
             state.volume = volume
             state.displayMsg = `Volume set to ${volume}%`
         },
         setDisplay(state, action){
-            state.displayMsg = (ut.isStr(action.displayMsg)) ? action.displayMsg : "Bad Message";
+            state.displayMsg = (ut.isStr(action.payload)) ? action.payload : "Bad Message";
         }
     }
 })
