@@ -13,12 +13,14 @@ import {DrumPads} from "./dmPads.jsx";
  */
 export function DrumMachine(){
 
-    const controls = [
-        <PowerSelector key="powerSelector" />,
-        <DisplayBoxWithContext key="displayBox" />,
-        <VolumeSelector key="volumeSelector" />,
-        <SoundBankSelector key="bankSelector" />,
-    ]
+    const controls = (
+        <>
+            <PowerSelector key="powerSelector" />
+            <DisplayBoxWithContext key="displayBox" />
+            <VolumeSelector key="volumeSelector" />
+            <SoundBankSelector key="bankSelector" />
+        </>
+    )
 
     return(
         <section id="drum-container" className="container-fluid min-vh-100 vw-100 d-flex ">
@@ -29,12 +31,8 @@ export function DrumMachine(){
                         <DrumPads/>
                     </div>
                     <div id="drum-controls" className="col-md-6">
-                        <DrumControls >
-                            <PowerSelector key="powerSelector" />
-                            <DisplayBoxWithContext key="displayBox" />
-                            <VolumeSelector key="volumeSelector" />
-                            <SoundBankSelector key="bankSelector" />
-                        </DrumControls>
+                        <DrumControls controls={controls} />
+
                     </div>
                 </div>
             </div>

@@ -1,21 +1,19 @@
 import PropTypes from "prop-types";
-import {Component} from "react";
-
 /**
  *
  * @param props
  * @return {JSX.Element}
  * @constructor
  */
-export function DrumControls({children}){
+export function DrumControls({controls}){
 
     return(
         <div className="drum-box-control">
-            {children}
+            {controls}
         </div>
     )
 }
-/*
+
 DrumControls.propTypes = {
-    controls: PropTypes.arrayOf(Component).isRequired
-}*/
+    controls: PropTypes.element.isRequired
+}
