@@ -34,7 +34,7 @@ export const ut = {
     *
     */
     isAttrKey: (value) => {
-        return ut.isStr(value) && /(?=[a-zA-Z0-9\-_]{1,80}$)^([a-zA-Z0-9]+(?:[_\-][a-zA-Z0-9]+)*)$/.test(value)
+        return ut.isStr(value) && /(?=[a-zA-Z0-9\-_]{1,80}$)^([a-zA-Z0-9]+(?:[_-][a-zA-Z0-9]+)*)$/.test(value)
     },
     queryCheck: (s) => {
         return document.createDocumentFragment().querySelector(s)
