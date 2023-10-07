@@ -6,9 +6,12 @@ const loadInitialState = () => {
     if(ut.isArray(banksData)){
         let bank = '',
             bankPads = []
-        const availableBanks = banksData.reduce((res, obj)=>{
+        const availableBanks = banksData.reduce((res, obj, index)=>{
             if(ut.isStr(obj.name)){
-                res.push(obj.name)
+                res.push({
+                    value: obj.name,
+                    label: index+1
+                })
                 if(bank === ''){
                     bank = obj.name
                 }
